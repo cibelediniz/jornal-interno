@@ -1,5 +1,3 @@
-# vim: set ft=rst:
+Aplicação Django desenvolvida para a disciplina de Desenvolvimento de Sistemas Web.
 
-See https://help.pythonanywhere.com/ (or click the "Help" link at the top
-right) for help on how to use PythonAnywhere, including tips on copying and
-pasting from consoles, and writing your own web applications.
+#[Jornal Interno](http://cblldiniz.pythonanywhere.com/jornal/)
