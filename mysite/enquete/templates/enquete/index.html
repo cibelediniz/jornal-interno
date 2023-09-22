@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>App Enquetes</title>
+    </head>
+    <body>
+        <h1>Aplicação de Enquetes</h1>
+        {% if lista_perguntas %}
+            <ul>
+                {% for pergunta in lista_perguntas %}
+                    <li><a href="{% url 'enquete:detalhes' pergunta.id %}">
+                        {{ pergunta.enunciado }}
+                    </a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3>Nenhuma enquete cadastrada até o momento!</h3>
+        {% endif %}
+    </body>
+</html>

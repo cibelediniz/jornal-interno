@@ -1,0 +1,14 @@
+{% extends 'jornalinterno/base.html' %}
+
+{% block title %}Jornal Absurdo - Adicionar Comentário{% endblock %}
+
+{% block conteudo %}
+    <h1>Adicionar Comentário</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type='submit'>Cadastrar Comentário</button>
+    </form>
+
+    <a href="{% url 'jornalinterno:index' %}">Voltar para o início</a>
+{% endblock %}

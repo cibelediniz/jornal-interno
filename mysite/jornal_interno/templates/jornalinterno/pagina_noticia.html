@@ -1,0 +1,22 @@
+{% extends 'jornalinterno/base.html' %}
+
+{% block title %}Jornal Absurdo - {{ noticia.titulo }}{% endblock %}
+
+{% block conteudo %}
+    <h2>{{ noticia.titulo }}</h2>
+    <p>Autor: {{ noticia.autor.nome }}</p>
+    <p>Data de publicação: {{ noticia.data_pub }}</p>
+    <p>{{ noticia.conteudo }}</p>
+
+    <h3>Comentários</h3>
+        {% for comentario in comentarios %}
+            <strong>Por: {{ comentario.leitor.nome }}</strong>
+            <p>{{ comentario.conteudo }}</p>
+        {% empty %}
+            <p>Nenhum gato de Cibele comentou ainda!</p>
+        {% endfor %}
+
+    <a href="{% url 'jornalinterno:add_coment' noticia_id=noticia.pk %}">Adicionar Comentário</a><br>
+
+    <a href="{% url 'jornalinterno:index' %}">Voltar para o início</a>
+{% endblock %}

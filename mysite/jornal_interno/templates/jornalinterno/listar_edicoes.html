@@ -1,0 +1,27 @@
+{% extends 'jornalinterno/base.html' %}
+
+{% block title %}Jornal Absurdo - Lista de Edições{% endblock %}
+
+{% block conteudo %}
+    <h2>Lista de Edições</h2>
+    <form method="get">
+        <input type="text" name="qr" placeholder="Pesquisar notícia por termo">
+        <button type='submit' name='qr'>Pesquisar</button>
+    </form>
+
+    <h3>Edições</h3>
+        {% for edicao in edicoes %}
+            <li><a href="{% url 'jornalinterno:pagina_edicao' edicao.pk %}">Edição {{ edicao.numero }} - {{ edicao.data }}</a></li>
+        {% endfor %}
+
+    {% if noticias %}
+        <h3>Todas as Notícias:</h3>
+            {% for noticia in noticias %}
+                <li><a href="{% url 'jornalinterno:pagina_noticia' noticia.pk %}">{{ noticia.titulo }}</a></li>
+            {% endfor %}
+    {% else %}
+        <p>Não há notícias com o termo pesquisado.</p>
+    {% endif %}
+
+    <a href="{% url 'jornalinterno:index' %}">Voltar para o início</a>
+{% endblock %}

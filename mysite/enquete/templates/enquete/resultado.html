@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>App Enquetes</title>
+    </head>
+    <body>
+        <h1>Aplicação de Enquetes</h1>
+        <h3>Resultado da enquete #{{ pergunta.id }}</h3>
+        <h3>{{ pergunta.enunciado }}</h3>
+        <ul>
+            {% for alt in pergunta.alternativa_set.all %}
+                <li>{{ alt.texto }} -- {{ alt.quant_votos }}
+                voto{{ alt.quant_votos | pluralize }}</li>
+            {% endfor %}
+        </ul>
+        <hr/>
+        <a href="{% url 'enquete:index' %}">Voltar</a> |
+        <a href="{% url 'enquete:detalhes' pergunta.id %}">Votar novamente!</a>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Jornal Absurdo{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'jornalinterno/base.css' %}">
+</head>
+
+<body>
+    <div id="conteudo">
+        <h1>Jornal Absurdo!</h1>
+        <hr/>
+        {% block conteudo %}{% endblock %}
+        <hr/>
+        &copy; DSWeb/TADS/CNAT/IFRN 2023
+    </div>
+</body>
+</html>

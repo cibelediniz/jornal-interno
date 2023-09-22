@@ -1,0 +1,20 @@
+{% extends 'jornalinterno/base.html' %}
+
+{% block title %}Jornal Absurdo - Edição {{ edicao.numero }}{% endblock %}
+
+{% block conteudo %}
+    <h2>Edição {{ edicao.numero }}</h2>
+    <p>Data da Edição: {{ edicao.data }}</p>
+
+    <h3>Notícias da Edição</h3>
+    <ul>
+        {% for noticia in noticias %}
+            <a href="{% url 'jornalinterno:pagina_noticia' noticia.pk %}">{{ noticia.titulo }}</a>
+        {% endfor %}
+
+    <a href="{% url 'jornalinterno:add_ed' %}">Cadastrar Edição</a><br>
+
+    <a href="{% url 'jornalinterno:add_noticia' %}">Cadastrar Notícia</a><br>
+
+    <a href="{% url 'jornalinterno:index' %}">Voltar para o início</a>
+{% endblock %}
